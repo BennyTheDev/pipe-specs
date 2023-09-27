@@ -46,7 +46,7 @@ Looking closer the values as follows:
 
 "P": shortcut for PIPE, signalling this is a PIPE function.
 
-"D": shortcut for Deploy, signallaing the following data is to define a new token.
+"D": shortcut for Deploy, signalling the following data is to define a new token.
 
 "[BASE26 ENCODED TICKER]": human readable ticker name, decoded as described in General Rules.
 
@@ -97,7 +97,7 @@ Values:
 
 "P": shortcut for PIPE, signalling this is a PIPE function.
 
-"D": shortcut for Deploy, signallaing the following data is to define a new token.
+"M": shortcut for Mint, signalling the following data is to mint tokens.
 
 "[BASE26 ENCODED TICKER]": human readable ticker name, decoded as described in General Rules.
 
@@ -142,7 +142,7 @@ Transfer structure:
 ```
 OP_RETURN
 P
-M
+T
 ...begin quadruple
 [BASE26 ENCODED TICKER]
 [ID]
@@ -154,7 +154,7 @@ M
 
 "P": shortcut for PIPE, signalling this is a PIPE function.
 
-"D": shortcut for Deploy, signallaing the following data is to define a new token.
+"T": shortcut for Transfer, signalling the following data is to send tokens.
 
 Quadruple:
 
