@@ -56,13 +56,13 @@ Looking closer the values as follows:
 
 "[DECIMALS]": the decimals for the token from 0 - 8 as unsigned integer.
 
-"[MAX]": the max. amount of tokens as string, ever for this token as in supply.
+"[MAX]": the max. amount of tokens as hex encoded string, ever for this token as in supply.
 
-"[LIMIT]": the max. amount of tokens as string that may be minted per tx.
+"[LIMIT]": the max. amount of tokens as hex encoded string that may be minted per tx.
 
 A transaction containing this function, must be assigned to a beneficiary address as described in General Rules. This allows for applications like marketplaces sending royalties to the benificiary on trading fees.
 
-[MAX] and [LIMIT] values must be a string, representing a human readable number. Leading zeros are not allowed. Trailing zeros in decimals are not allowed. One decimal point can be used or omitted. No other characters are allowed.
+[MAX] and [LIMIT] values must be a hex encoded string, representing a human readable number. Leading zeros are not allowed. Trailing zeros in decimals are not allowed. One decimal point can be used or omitted. No other characters are allowed.
 
 Transactions with decimal points beyond [DECIMALS] are rejected. Max. number is '18446744073709551615'.
 
@@ -105,7 +105,7 @@ Values:
 
 "[OUTPUT]": the index as unsigned integer of the output containing the address/pubkey of the beneficiary.
 
-"[MINT AMOUNT]": The amount to mint as string, between 0 and [LIMIT] (inclusive), given with the deploy function.
+"[MINT AMOUNT]": The amount to mint as hex encoded string, between 0 and [LIMIT] (inclusive), given with the deploy function.
 
 If the mint amount does not exceed the limit and supply that is left from the deployment, the amount of tokens must be credited to the beneficiary as assigned in [OUTPUT].
 
@@ -115,7 +115,7 @@ A transaction containing this function, must be assigned to a beneficiary addres
 
 Deploy and Mint can happen in the same block but any Mint will be ignored if its transaction index is < the deploy transaction index.
 
-[MINT AMOUNT] value must be a string, representing a human readable number. Leading zeros are not allowed. Trailing zeros in decimals are not allowed. One decimal point can be used or omitted. No other characters are allowed.
+[MINT AMOUNT] value must be a hex encoded string, representing a human readable number. Leading zeros are not allowed. Trailing zeros in decimals are not allowed. One decimal point can be used or omitted. No other characters are allowed.
 
 Transactions with decimal points beyond [DECIMALS] (see Deploy Rules) are rejected. Max. number is '18446744073709551615'. 
 
@@ -162,7 +162,7 @@ Quadruple:
 
 "[OUTPUT]": the index as unsigned integer of the output containing the address/pubkey of the beneficiary.
 
-"[TRANSFER AMOUNT]": The amount to transfer as string.
+"[TRANSFER AMOUNT]": The amount to transfer as hex encoded string.
 
 If the transfer amount does not exceed the account's balances, the transfer amount is being credited to the beneficiary as assigned in each quadruple's [OUTPUT].
 
@@ -170,7 +170,7 @@ A transaction containing this function, must be assigned to a beneficiary addres
 
 Deploy, Mint and Transfer can happen in the same block but any Transfer will be ignored if its transaction index is < the deploy transaction index or < the Mint transaction that _would_ credit for the amount to transfer.
 
-[TRANSFER AMOUNT] value must be a string, representing a human readable number. Leading zeros are not allowed. Trailing zeros in decimals are not allowed. One decimal point can be used or omitted. No other characters are allowed.
+[TRANSFER AMOUNT] value must be a hex encoded string, representing a human readable number. Leading zeros are not allowed. Trailing zeros in decimals are not allowed. One decimal point can be used or omitted. No other characters are allowed.
 
 Transactions with decimal points beyond [DECIMALS] (see Deploy Rules) are rejected. Max. number is '18446744073709551615'.
 
