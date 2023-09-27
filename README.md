@@ -62,8 +62,20 @@ Looking closer the values as follows:
 
 A transaction containing this function, must be assigned to a beneficiary address as described in General Rules. This allows for applications like marketplaces sending royalties to the benificiary on trading fees.
 
-[MAX] and [LIMIT] values must be a string, representing a human readable number. Leading zeros are not allowed. One decimal point can be used or omitted. No other characters are allowed.
- Transactions with decimal points beyond [DECIMALS] are rejected. Max. number is '18446744073709551615'. 
+[MAX] and [LIMIT] values must be a string, representing a human readable number. Leading zeros are not allowed. Trailing zeros in decimals are not allowed. One decimal point can be used or omitted. No other characters are allowed.
+
+Transactions with decimal points beyond [DECIMALS] are rejected. Max. number is '18446744073709551615'.
+
+Examples:
+
+```
+2100 => ok
+2100.5 => ok, if decimal length <= [DECIMALS]
+ 2100 => not ok
+2100.50 => not ok
+2,100 => not ok
+18446744073709551616 => not ok (note exceeding the max number)
+``` 
 
 Indexers must transform the given [MAX] and [LIMIT] internally into bigints based on [DECIMALS] and perform calculations on those to maintain precision. No calculations or rounding on the original human readable format allowed.
 
@@ -101,9 +113,20 @@ Remaining supply must be credited to the beneficiary, as long as the limit isn't
 
 A transaction containing this function, must be assigned to a beneficiary address as described in General Rules.
 
-[MINT AMOUNT] value must be a string, representing a human readable number. Leading zeros are not allowed. One decimal point can be used or omitted. No other characters are allowed.
+[MINT AMOUNT] value must be a string, representing a human readable number. Leading zeros are not allowed. Trailing zeros in decimals are not allowed. One decimal point can be used or omitted. No other characters are allowed.
 
 Transactions with decimal points beyond [DECIMALS] (see Deploy Rules) are rejected. Max. number is '18446744073709551615'. 
+
+Examples:
+
+```
+2100 => ok
+2100.5 => ok, if decimal length <= [DECIMALS]
+ 2100 => not ok
+2100.50 => not ok
+2,100 => not ok
+18446744073709551616 => not ok (note exceeding the max number)
+``` 
 
 Indexers must transform the given [MINT AMOUNT] internally into bigint based on [DECIMALS] (see Deploy Rules) and perform calculations on those to maintain precision. No calculations or rounding on the original human readable format allowed.
 
@@ -115,15 +138,13 @@ This allows multi-sends within a single transaction. There is no limit on the am
 Transfer structure:
 
 ```
-OP_RETURN
-P
-T
-[BASE26 ENCODED TICKER]
-[ID]
-[OUTPUT]
-[TRANSFER AMOUNT]
-...next quadruple
-```
+2100 => ok
+2100.5 => ok, if decimal length <= [DECIMALS]
+ 2100 => not ok
+2100.50 => not ok
+2,100 => not ok
+18446744073709551616 => not ok (note exceeding the max number)
+``` 
 
 Values:
 
@@ -145,9 +166,19 @@ If the transfer amount does not exceed the account's balances, the transfer amou
 
 A transaction containing this function, must be assigned to a beneficiary address as described in General Rules.
 
-[TRANSFER AMOUNT] value must be a string, representing a human readable number. Leading zeros are not allowed. One decimal point can be used or omitted. No other characters are allowed.
+[TRANSFER AMOUNT] value must be a string, representing a human readable number. Leading zeros are not allowed. Trailing zeros in decimals are not allowed. One decimal point can be used or omitted. No other characters are allowed.
 
-Transactions with decimal points beyond [DECIMALS] (see Deploy Rules) are rejected. Max. number is '18446744073709551615'. 
+Transactions with decimal points beyond [DECIMALS] (see Deploy Rules) are rejected. Max. number is '18446744073709551615'.
+
+Examples:
+
+```
+2100 => ok
+2100.5 => ok, if decimal length <= [DECIMALS]
+ 2100 => not ok
+2100.50 => not ok
+2,100 => not ok
+``` 
 
 Indexers must transform the given [TRANSFER AMOUNT] internally into bigint based on [DECIMALS] (see Deploy Rules) and perform calculations on those to maintain precision. No calculations or rounding on the original human readable format allowed.
 
