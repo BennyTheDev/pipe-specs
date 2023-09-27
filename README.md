@@ -13,7 +13,7 @@ Further upgrades are not ruled out and may progressively be enhanced within this
 ## General Rules
 
 - A PIPE TX must consist of at least 2 outputs:
-- - The beneficary receiver
+- - The beneficiary receiver
   - An OP_RETURN output, followed by the 'P' and function identifier (D, M, T) and its data
 - Tickers are base26 encoded and must have an arbitrary integer with a max. value of 9999 attached (ID)
 - - base26 value encoding: A=1, AA=27, Z=26, BA=53
@@ -22,8 +22,8 @@ Further upgrades are not ruled out and may progressively be enhanced within this
 - All integers passed after OP_RETURN must be unsigned
 - All unisgned integers from 0 - 16 must be encoded as OP_0/OP_FALSE, OP_1/OP_TRUE to OP_16
 - Only 1 OP_RETURN is allowed per TX
-- No self-referenced burn events or similar are allowed. To burn tokens, they have to be assigned to a beneficary receiver that represents a burner address
-- - This means a PIPE TX is invalid if it points to the output containing OP_RETURN or any scriptPubyKey entry _not_ containing a beneficary receiver (address/pubkey)
+- No self-referenced burn events or similar are allowed. To burn tokens, they have to be assigned to a beneficiary receiver that represents a burner address
+- - This means a PIPE TX is invalid if it points to the output containing OP_RETURN or any scriptPubyKey entry _not_ containing a beneficiary receiver (address/pubkey)
 - Any rule-breaking TX will lead to skipping the TX entirely for inclusion in an index
 
 ## Deploy Rules
@@ -52,7 +52,7 @@ Looking closer the values as follows:
 
 "[ID]": the arbitray ID for the ticker from 0 - 9999 as unsigned integer. "0" semantically signals that there is no ID assigned (note that ticker:ID must be unique).
 
-"[OUTPUT]": the index as unsigned integer of the output containing the address/pubkey of the beneficary
+"[OUTPUT]": the index as unsigned integer of the output containing the address/pubkey of the beneficiary
 
 "[DECIMALS]": the decimals for the token from 0 - 8 as unsigned integer.
 
@@ -103,7 +103,7 @@ Values:
 
 "[ID]": the arbitray ID for the ticker from 0 - 9999 as unsigned integer. "0" semantically signals that there is no ID assigned (note that ticker:ID must be unique).
 
-"[OUTPUT]": the index as unsigned integer of the output containing the address/pubkey of the beneficary.
+"[OUTPUT]": the index as unsigned integer of the output containing the address/pubkey of the beneficiary.
 
 "[MINT AMOUNT]": The amount to mint as string, between 0 and [LIMIT] (inclusive), given with the deploy function.
 
@@ -158,11 +158,11 @@ Quadruple:
 
 "[ID]": the arbitray ID for the ticker from 0 - 9999 as unsigned integer. "0" semantically signals that there is no ID assigned (note that ticker:ID must be unique).
 
-"[OUTPUT]": the index as unsigned integer of the output containing the address/pubkey of the beneficary.
+"[OUTPUT]": the index as unsigned integer of the output containing the address/pubkey of the beneficiary.
 
 "[TRANSFER AMOUNT]": The amount to transfer as string.
 
-If the transfer amount does not exceed the account's balances, the transfer amount is being credited to the beneficary as assigned in each quadruple's [OUTPUT].
+If the transfer amount does not exceed the account's balances, the transfer amount is being credited to the beneficiary as assigned in each quadruple's [OUTPUT].
 
 A transaction containing this function, must be assigned to a beneficiary address as described in General Rules.
 
