@@ -34,12 +34,12 @@ On a high level, the output of a Deploy function is structured as follows:
 OP_RETURN
 P
 D
-<BASE26 ENCODED TICKER>
-<ID>
-<OUTPUT>
-<DECIMALS>
-<MAX>
-<LIMIT>
+[BASE26 ENCODED TICKER]
+[ID]
+[OUTPUT]
+[DECIMALS]
+[MAX]
+[LIMIT]
 ```
 
 Looking closer the values as follows:
@@ -48,24 +48,24 @@ Looking closer the values as follows:
 
 "D": shortcut for Deploy, signallaing the following data is to define a new token.
 
-"<BASE26 ENCODED TICKER>": human readable ticker name, decoded as described in General Rules.
+"[BASE26 ENCODED TICKER]": human readable ticker name, decoded as described in General Rules.
 
-"<ID>": the arbitray ID for the ticker from 0 - 9999 as unsigned integer. "0" semantically signals that there is no ID assigned (note that ticker:ID must be unique).
+"[ID]": the arbitray ID for the ticker from 0 - 9999 as unsigned integer. "0" semantically signals that there is no ID assigned (note that ticker:ID must be unique).
 
-"<OUTPUT>": the index as unsigned integer of the output containing the address/pubkey of the beneficary
+"[OUTPUT]": the index as unsigned integer of the output containing the address/pubkey of the beneficary
 
-"<DECIMALS>": the decimals for the token from 0 - 8 as unsigned integer.
+"[DECIMALS]": the decimals for the token from 0 - 8 as unsigned integer.
 
-"<MAX>": the max. amount of tokens as string, ever for this token as in supply.
+"[MAX]": the max. amount of tokens as string, ever for this token as in supply.
 
-"<LIMIT>": the max. amount of tokens as string that may be minted per tx.
+"[LIMIT]": the max. amount of tokens as string that may be minted per tx.
 
 A transaction containing this function, must be assigned to a beneficiary address as described in General Rules. This allows for applications like marketplaces sending royalties to the benificiary on trading fees.
 
-<MAX> and <LIMIT> values must be a string, representing a human readable number. Leading zeros are not allowed. One decimal point can be used or omitted. No other characters are allowed.
- Transactions with decimal points beyond <DECIMALS> are rejected. Max. number is '18446744073709551615'. 
+[MAX] and [LIMIT] values must be a string, representing a human readable number. Leading zeros are not allowed. One decimal point can be used or omitted. No other characters are allowed.
+ Transactions with decimal points beyond [DECIMALS] are rejected. Max. number is '18446744073709551615'. 
 
-Indexers must transform the given <MAX> and <LIMIT> internally into bigints based on <DECIMALS> and perform calculations on those to maintain precision. No calculations or rounding on the original human readable format allowed.
+Indexers must transform the given [MAX] and [LIMIT] internally into bigints based on [DECIMALS] and perform calculations on those to maintain precision. No calculations or rounding on the original human readable format allowed.
 
 ## Mint Rules
 
@@ -75,10 +75,10 @@ Mint structure:
 OP_RETURN
 P
 M
-<BASE26 ENCODED TICKER>
-<ID>
-<OUTPUT>
-<MINT AMOUNT>
+[BASE26 ENCODED TICKER]
+[ID]
+[OUTPUT]
+[MINT AMOUNT]
 ```
 
 Values:
@@ -87,25 +87,25 @@ Values:
 
 "D": shortcut for Deploy, signallaing the following data is to define a new token.
 
-"<BASE26 ENCODED TICKER>": human readable ticker name, decoded as described in General Rules.
+"[BASE26 ENCODED TICKER]": human readable ticker name, decoded as described in General Rules.
 
-"<ID>": the arbitray ID for the ticker from 0 - 9999 as unsigned integer. "0" semantically signals that there is no ID assigned (note that ticker:ID must be unique).
+"[ID]": the arbitray ID for the ticker from 0 - 9999 as unsigned integer. "0" semantically signals that there is no ID assigned (note that ticker:ID must be unique).
 
-"<OUTPUT>": the index as unsigned integer of the output containing the address/pubkey of the beneficary.
+"[OUTPUT]": the index as unsigned integer of the output containing the address/pubkey of the beneficary.
 
-"<MINT AMOUNT>": The amount to mint as string, between 0 and <LIMIT> (inclusive), given with the deploy function.
+"[MINT AMOUNT]": The amount to mint as string, between 0 and [LIMIT] (inclusive), given with the deploy function.
 
-If the mint amount does not exceed the limit and supply that is left from the deployment, the amount of tokens must be credited to the beneficiary as assigned in <OUTPUT>.
+If the mint amount does not exceed the limit and supply that is left from the deployment, the amount of tokens must be credited to the beneficiary as assigned in [OUTPUT].
 
 Remaining supply must be credited to the beneficiary, as long as the limit isn't exceeded.
 
 A transaction containing this function, must be assigned to a beneficiary address as described in General Rules.
 
-<MINT AMOUNT> value must be a string, representing a human readable number. Leading zeros are not allowed. One decimal point can be used or omitted. No other characters are allowed.
+[MINT AMOUNT] value must be a string, representing a human readable number. Leading zeros are not allowed. One decimal point can be used or omitted. No other characters are allowed.
 
-Transactions with decimal points beyond <DECIMALS> (see Deploy Rules) are rejected. Max. number is '18446744073709551615'. 
+Transactions with decimal points beyond [DECIMALS] (see Deploy Rules) are rejected. Max. number is '18446744073709551615'. 
 
-Indexers must transform the given <MINT AMOUNT> internally into bigint based on <DECIMALS> (see Deploy Rules) and perform calculations on those to maintain precision. No calculations or rounding on the original human readable format allowed.
+Indexers must transform the given [MINT AMOUNT] internally into bigint based on [DECIMALS] (see Deploy Rules) and perform calculations on those to maintain precision. No calculations or rounding on the original human readable format allowed.
 
 ## Transfer Rules
 
@@ -118,10 +118,10 @@ Transfer structure:
 OP_RETURN
 P
 T
-<BASE26 ENCODED TICKER>
-<ID>
-<OUTPUT>
-<TRANSFER AMOUNT>
+[BASE26 ENCODED TICKER]
+[ID]
+[OUTPUT]
+[TRANSFER AMOUNT]
 ...next quadruple
 ```
 
@@ -133,22 +133,22 @@ Values:
 
 Quadruple:
 
-"<BASE26 ENCODED TICKER>": human readable ticker name, decoded as described in General Rules.
+"[BASE26 ENCODED TICKER]": human readable ticker name, decoded as described in General Rules.
 
-"<ID>": the arbitray ID for the ticker from 0 - 9999 as unsigned integer. "0" semantically signals that there is no ID assigned (note that ticker:ID must be unique).
+"[ID]": the arbitray ID for the ticker from 0 - 9999 as unsigned integer. "0" semantically signals that there is no ID assigned (note that ticker:ID must be unique).
 
-"<OUTPUT>": the index as unsigned integer of the output containing the address/pubkey of the beneficary.
+"[OUTPUT]": the index as unsigned integer of the output containing the address/pubkey of the beneficary.
 
-"<TRANSFER AMOUNT>": The amount to transfer as string.
+"[TRANSFER AMOUNT]": The amount to transfer as string.
 
-If the transfer amount does not exceed the account's balances, the transfer amount is being credited to the beneficary as assigned in each quadruple's <OUTPUT>.
+If the transfer amount does not exceed the account's balances, the transfer amount is being credited to the beneficary as assigned in each quadruple's [OUTPUT].
 
 A transaction containing this function, must be assigned to a beneficiary address as described in General Rules.
 
-<TRANSFER AMOUNT> value must be a string, representing a human readable number. Leading zeros are not allowed. One decimal point can be used or omitted. No other characters are allowed.
+[TRANSFER AMOUNT] value must be a string, representing a human readable number. Leading zeros are not allowed. One decimal point can be used or omitted. No other characters are allowed.
 
-Transactions with decimal points beyond <DECIMALS> (see Deploy Rules) are rejected. Max. number is '18446744073709551615'. 
+Transactions with decimal points beyond [DECIMALS] (see Deploy Rules) are rejected. Max. number is '18446744073709551615'. 
 
-Indexers must transform the given <TRANSFER AMOUNT> internally into bigint based on <DECIMALS> (see Deploy Rules) and perform calculations on those to maintain precision. No calculations or rounding on the original human readable format allowed.
+Indexers must transform the given [TRANSFER AMOUNT] internally into bigint based on [DECIMALS] (see Deploy Rules) and perform calculations on those to maintain precision. No calculations or rounding on the original human readable format allowed.
 
 The operation must be atomic: If one quadruple fails, all fail.
