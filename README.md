@@ -139,6 +139,19 @@ This allows multi-sends within a single transaction. There is no limit on the am
 
 Transfer structure:
 
+```
+OP_RETURN
+P
+M
+...begin quadruple
+[BASE26 ENCODED TICKER]
+[ID]
+[OUTPUT]
+[TRANSFER AMOUNT]
+...end quadruple
+...next quadruple...
+```
+
 "P": shortcut for PIPE, signalling this is a PIPE function.
 
 "D": shortcut for Deploy, signallaing the following data is to define a new token.
