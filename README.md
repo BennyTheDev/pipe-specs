@@ -2,13 +2,16 @@
 
 PIPE is a Bitcoin-native token protocol inspired by Casey Rodarmor's RUNES and Ordinal's BRC-20 ideas.
 
-Since RUNES does not allow for fair mints (an important aspect of BRC-20's) and potentially renders all of its tokens securities (due to centralized distribution),
-PIPE tries to combine the strengths of both ideas.
+Since RUNES does not allow for fair mints (an important aspect of BRC-20's) and potentially renders all of its tokens securities (due to centralized distribution), PIPE tries to combine the strengths of both ideas.
 
 Like BRC-20, PIPE consists of 3 "functions": Deploy, Mint, Transfer. Deploy signals that a new token has been deployed, while Mint allows to mint from this token, based on the deployment's rules (supply, limits). Eventually, Transfer is being used to send tokens to selected recipients.
 
 This document describes how each of the functions should be reflected within Bitcoin transactions and how indexers/wallets must treat those.
 Further upgrades are not ruled out and may progressively be enhanced within this document.
+
+## PLEASE NOTE
+
+There is no indexing or wallet for PIPE yet. You can download the following simple javascript that showcases how each deploy, mint and transfer function works. Just download, unzip, edit and run in your browser. Initial instructions included in the html file.
 
 ## General Rules
 
@@ -25,7 +28,7 @@ Further upgrades are not ruled out and may progressively be enhanced within this
 - No self-referenced burn events or similar are allowed. To burn tokens, they have to be assigned to a beneficiary receiver that represents a burner address
 - - This means a PIPE TX is invalid if it points to the output containing OP_RETURN or any scriptPubyKey entry _not_ containing a beneficiary receiver (address/pubkey)
 - Any rule-breaking TX will lead to skipping the TX entirely for inclusion in an index
-- Indexers must detect reorgs and re-index from the first reorg'ed block - 7.
+- Indexers/wallets must detect reorgs and re-index from the first reorg'ed block - 7.
 
 ## Deploy Rules
 
@@ -167,7 +170,7 @@ Quadruple:
 
 "[TRANSFER AMOUNT]": The amount to transfer as hex encoded string.
 
-The transfer amount must be deducted from the address (the account) of the first input's prevout scriptPubKey. If the transfer amount does not exceed the account's balances, the transfer amount must be credited to the beneficiary as assigned in each quadruple's [OUTPUT]. The transaction will be rejected if the account balances are insufficient.
+The transfer amount must be deducted from the first address (the account) of the first input's prevout scriptPubKey. If the transfer amount does not exceed the account's balances, the transfer amount must be credited to the beneficiary as assigned in each quadruple's [OUTPUT]. The transaction will be rejected if the account balances are insufficient.
 
 A transaction containing this function, must be assigned to a beneficiary address as described in General Rules.
 
