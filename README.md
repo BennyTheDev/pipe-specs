@@ -11,7 +11,9 @@ Further upgrades are not ruled out and may progressively be enhanced within this
 
 ## PLEASE NOTE
 
-There is no indexing or wallet for PIPE yet. You can download the following simple javascript that showcases how each deploy, mint and transfer function works. Just download, unzip, edit and run in your browser. Initial instructions included in the html file.
+There is no indexing or wallet for PIPE yet. You can download the following simple javascript that showcases how each deploy, mint and transfer function works: https://trac.network/pipe.zip
+
+Just download, unzip, edit and run in your browser. Initial instructions included in the html file.
 
 ## General Rules
 
