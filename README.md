@@ -25,6 +25,7 @@ Further upgrades are not ruled out and may progressively be enhanced within this
 - No self-referenced burn events or similar are allowed. To burn tokens, they have to be assigned to a beneficiary receiver that represents a burner address
 - - This means a PIPE TX is invalid if it points to the output containing OP_RETURN or any scriptPubyKey entry _not_ containing a beneficiary receiver (address/pubkey)
 - Any rule-breaking TX will lead to skipping the TX entirely for inclusion in an index
+- Indexers must detect reorgs and re-index from the first reorg'ed block - 7.
 
 ## Deploy Rules
 
