@@ -167,7 +167,7 @@ Quadruple:
 
 "[TRANSFER AMOUNT]": The amount to transfer as hex encoded string.
 
-The transfer amount must be deducted from the address of the first input's prevout scriptPubKey. If the transfer amount does not exceed the account's balances, the transfer amount must be credited to the beneficiary as assigned in each quadruple's [OUTPUT]. The transaction will be rejected if the account balances are insufficient.
+The transfer amount must be deducted from the address (the account) of the first input's prevout scriptPubKey. If the transfer amount does not exceed the account's balances, the transfer amount must be credited to the beneficiary as assigned in each quadruple's [OUTPUT]. The transaction will be rejected if the account balances are insufficient.
 
 A transaction containing this function, must be assigned to a beneficiary address as described in General Rules.
 
