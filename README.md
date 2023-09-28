@@ -87,7 +87,8 @@ Examples:
 Indexers must transform the given [MAX] and [LIMIT] internally into bigints based on [DECIMALS] and perform calculations on those to maintain precision. No calculations or rounding on the original human readable format allowed.
 
 NOTE: until block 809999, indexers need to detect if [MAX] and [LIMIT] are hex values. If not, then the raw values must be used (e.g. '1000' = 1000), else use the hex encoded string.
-      from block 810000 only hex encoded strings must be accepted and raw values lead to invalid token transactions.
+
+From block 810000 only hex encoded strings must be accepted and raw values lead to invalid token transactions.
 
 ## Mint Rules
 
@@ -143,7 +144,8 @@ Examples:
 Indexers must transform the given [MINT AMOUNT] internally into bigint based on [DECIMALS] (see Deploy Rules) and perform calculations on those to maintain precision. No calculations or rounding on the original human readable format allowed.
 
 NOTE: until block 809999, indexers need to detect if [MINT AMOUNT] is a hex value. If not, then the raw value must be used (e.g. '1000' = 1000), else use the hex encoded string.
-      from block 810000 only hex encoded strings must be accepted and raw values lead to invalid token transactions.
+
+From block 810000 only hex encoded strings must be accepted and raw values lead to invalid token transactions.
 
 ## Transfer Rules
 
@@ -204,4 +206,5 @@ Indexers must transform the given [TRANSFER AMOUNT] internally into bigint based
 The operation must be atomic: If one quadruple fails, all fail. No token balance-changing operations will be applied in this case.
 
 NOTE: until block 809999, indexers need to detect if [TRANSFER AMOUNT] is a hex value. If not, then the raw value must be used (e.g. '1000' = 1000), else use the hex encoded string.
-      from block 810000 only hex encoded strings must be accepted and raw values lead to invalid token transactions.
+
+From block 810000 only hex encoded strings must be accepted and raw values lead to invalid token transactions.
