@@ -31,6 +31,7 @@ Just download, unzip, edit and run in your browser. Initial instructions include
 - - This means a PIPE TX is invalid if it points to the output containing OP_RETURN or any scriptPubyKey entry _not_ containing a beneficiary receiver (address/pubkey)
 - Any rule-breaking TX will lead to skipping the TX entirely for inclusion of a token related result in an index
 - Indexers/wallets must detect reorgs and re-index from the first reorg'ed block - 7.
+- Indexing starts with block 809608 (included)
 
 ## Deploy Rules
 
@@ -85,6 +86,9 @@ Examples:
 
 Indexers must transform the given [MAX] and [LIMIT] internally into bigints based on [DECIMALS] and perform calculations on those to maintain precision. No calculations or rounding on the original human readable format allowed.
 
+NOTE: until block 809999, indexers need to detect if [MAX] and [LIMIT] are hex values. If not, then the raw values must be used (e.g. '1000' = 1000), else use the hex encoded string.
+      from block 810000 only hex encoded strings must be accepted and raw values lead to invalid token transactions.
+
 ## Mint Rules
 
 Mint structure:
@@ -137,6 +141,9 @@ Examples:
 ``` 
 
 Indexers must transform the given [MINT AMOUNT] internally into bigint based on [DECIMALS] (see Deploy Rules) and perform calculations on those to maintain precision. No calculations or rounding on the original human readable format allowed.
+
+NOTE: until block 809999, indexers need to detect if [MINT AMOUNT] is a hex value. If not, then the raw value must be used (e.g. '1000' = 1000), else use the hex encoded string.
+      from block 810000 only hex encoded strings must be accepted and raw values lead to invalid token transactions.
 
 ## Transfer Rules
 
@@ -195,3 +202,6 @@ Examples:
 Indexers must transform the given [TRANSFER AMOUNT] internally into bigint based on [DECIMALS] (see Deploy Rules) and perform calculations on those to maintain precision. No calculations or rounding on the original human readable format allowed.
 
 The operation must be atomic: If one quadruple fails, all fail. No token balance-changing operations will be applied in this case.
+
+NOTE: until block 809999, indexers need to detect if [TRANSFER AMOUNT] is a hex value. If not, then the raw value must be used (e.g. '1000' = 1000), else use the hex encoded string.
+      from block 810000 only hex encoded strings must be accepted and raw values lead to invalid token transactions.
