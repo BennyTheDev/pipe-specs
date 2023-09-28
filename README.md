@@ -194,4 +194,4 @@ Examples:
 
 Indexers must transform the given [TRANSFER AMOUNT] internally into bigint based on [DECIMALS] (see Deploy Rules) and perform calculations on those to maintain precision. No calculations or rounding on the original human readable format allowed.
 
-The operation must be atomic: If one quadruple fails, all fail.
+The operation must be atomic: If one quadruple fails, all fail. No token balance-changing operations will be applied in this case.
