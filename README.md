@@ -115,7 +115,7 @@ Values:
 
 If the mint amount does not exceed the limit and supply that is left from the deployment, the amount of tokens must be credited to the beneficiary as assigned in [OUTPUT].
 
-Remaining supply must be credited to the beneficiary, as long as the limit isn't exceeded.
+Remaining supply must be credited to the beneficiary, as long as the limit isn't exceeded. Indexers/wallets have to associate the amount of credited tokens to the resulting UTXO of the output linked with <OUTPUT> and store in its index.
 
 A transaction containing this function, must be assigned to a beneficiary address as described in General Rules.
 
@@ -172,7 +172,7 @@ Quadruple:
 
 "[TRANSFER AMOUNT]": The amount to transfer as hex encoded string.
 
-The transfer amount must be deducted from the first address (the account) of the first input's prevout scriptPubKey. If the transfer amount does not exceed the account's balances, the transfer amount must be credited to the beneficiary as assigned in each quadruple's [OUTPUT]. The transaction will be rejected if the account balances are insufficient.
+The transfer amount must be deducted from the amount of tokens associated with the UTXOs of the inputs. Remaining tokens must be sent to a change address using another quadruple. If there are UTXOs with enough token balances, the transfer amount must be credited to the beneficiary as assigned in each quadruple's [OUTPUT]. The transaction will be rejected if the combined amount of UTXO balances are insufficient.
 
 A transaction containing this function, must be assigned to a beneficiary address as described in General Rules.
 
