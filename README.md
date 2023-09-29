@@ -152,7 +152,7 @@ From block 810000 only hex encoded strings must be accepted and raw values lead 
 ## Transfer Rules
 
 Transfer may contain a number quadruple of pushes after 'T'. Each quadruple may address different tickers, IDs, outputs and amounts.
-This allows to specify change addresses and (limited multi-sends) within a single transaction. There is no limit on the amount of quadruples other than the max. allowed script size for the output.
+This allows to specify change addresses (and limited multi-send) within a single transaction. There is no limit on the amount of quadruples other than the max. allowed script size for the output.
 
 Transfer structure:
 
