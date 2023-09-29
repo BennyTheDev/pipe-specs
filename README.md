@@ -71,6 +71,8 @@ Looking closer the values as follows:
 
 A transaction containing this function, must be assigned to a beneficiary address as described in General Rules. This allows for applications like marketplaces sending royalties to the benificiary on trading fees.
 
+Clients must skip UTXOs being used for mints that already contain tokens.
+
 [MAX] and [LIMIT] values must be a hex encoded string, representing a human readable number. Leading zeros are not allowed. Trailing zeros in decimals are not allowed. One decimal point can be used or omitted. No other characters are allowed.
 
 Transactions with decimal points beyond [DECIMALS] are rejected. Max. number is '18446744073709551615'.
@@ -123,6 +125,8 @@ Values:
 If the mint amount does not exceed the limit and supply that is left from the deployment, the amount of tokens must be credited to the beneficiary as assigned in [OUTPUT].
 
 Remaining supply must be credited to the beneficiary, as long as the limit isn't exceeded. Indexers/wallets have to associate the amount of credited tokens to the resulting UTXO of the output linked with <OUTPUT> and store in its index.
+
+Clients must skip UTXOs being used for mints that already contain tokens.
 
 A transaction containing this function, must be assigned to a beneficiary address as described in General Rules.
 
