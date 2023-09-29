@@ -181,7 +181,7 @@ Quadruple:
 
 "[TRANSFER AMOUNT]": The amount to transfer as hex encoded string.
 
-The transfer amount must be deducted from the amount of tokens associated with the UTXOs of the inputs. Remaining tokens _should_ be sent to a change address using another quadruple, unless they should be burned. If there are UTXOs with enough token balances, the transfer amount must be credited to the beneficiary as assigned in each quadruple's [OUTPUT]. It is important to note that one [OUTPUT] can only be used once to prevent multiple token types being assocated with a single utxo. The transaction will be rejected if the combined amount of UTXO balances are insufficient _or_ there are duplicate [OUTPUT] associations.
+The transfer amount must be deducted from the amount of tokens associated with the UTXOs of the inputs. Remaining tokens _should_ be sent to a change address using another quadruple, unless they should be burned. If there are UTXOs with enough token balances, the transfer amount must be credited to the beneficiary as assigned in each quadruple's [OUTPUT]. It is important to note that one [OUTPUT] can only be used once to prevent multiple token types being associated with a single utxo. The transaction will be rejected if the combined amount of UTXO balances are insufficient _or_ there are duplicate [OUTPUT] associations.
 
 A transaction containing this function, must be assigned to a beneficiary address as described in General Rules.
 
