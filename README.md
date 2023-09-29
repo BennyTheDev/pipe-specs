@@ -27,9 +27,11 @@ Just download, unzip, edit and run in your browser. Initial instructions include
 - All integers passed after OP_RETURN must be unsigned
 - All unisgned integers from 0 - 16 must be encoded as OP_0/OP_FALSE, OP_1/OP_TRUE to OP_16
 - Only 1 OP_RETURN is allowed per TX
-- No self-referenced burn events allowed. To burn tokens, they have to be assigned to a beneficiary receiver that represents a burner address. Exception is if no change address is specified as quadruple with the Transfer function. In this case, remaining tokens of a transfer will be indeed burned.
+- No self-referenced burn events allowed.
+- - To burn tokens, they have to be assigned to a beneficiary receiver that represents a burner address.
+  - Exception is if no change address is specified as quadruple with the Transfer function. In this case, remaining tokens of a transfer will be indeed burned.
 - - This means a PIPE TX is invalid if it points to the output containing OP_RETURN or any scriptPubyKey entry _not_ containing a beneficiary receiver (address/pubkey)
-- Any rule-breaking TX will lead to skipping the TX entirely for inclusion of a token related result in an index
+  - Any rule-breaking TX will lead to rejecting the TX for a function. In case of transfer, any rejection will lead to tokens being burned. Clients have to apply careful validations of all rules before pushing a transaction.
 - Indexers/wallets must detect reorgs and re-index from the first reorg'ed block - 7.
 - Indexing starts with block 809608 (included)
 
