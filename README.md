@@ -126,7 +126,7 @@ Remaining supply must be credited to the beneficiary, as long as the limit isn't
 
 A transaction containing this function, must be assigned to a beneficiary address as described in General Rules.
 
-Deploy and Mint can happen in the same block but any Mint will be ignored if its transaction index is < the deploy transaction index.
+Deploy and Mint can happen in the same block but any Mint will be rejected if its transaction index is < the deploy transaction index.
 
 [MINT AMOUNT] value must be a hex encoded string, representing a human readable number. Leading zeros are not allowed. Trailing zeros in decimals are not allowed. One decimal point can be used or omitted. No other characters are allowed.
 
@@ -189,7 +189,7 @@ It is important to note that one [OUTPUT] can only be used once to prevent multi
 
 A transaction containing this function, must be assigned to a beneficiary address as described in General Rules.
 
-Deploy, Mint and Transfer can happen in the same block but any Transfer will be ignored if its transaction index is < the deploy transaction index or < the Mint transaction that _would_ credit for the amount to transfer.
+Deploy, Mint and Transfer can happen in the same block but any Transfer will be rejected if its transaction index is < the deploy transaction index or < the Mint transaction that _would_ credit for the amount to transfer.
 
 [TRANSFER AMOUNT] value must be a hex encoded string, representing a human readable number. Leading zeros are not allowed. Trailing zeros in decimals are not allowed. One decimal point can be used or omitted. No other characters are allowed.
 
