@@ -58,7 +58,7 @@ Looking closer the values as follows:
 
 "[BASE26 ENCODED TICKER]": human readable ticker name, decoded as described in General Rules.
 
-"[ID]": the arbitray ID for the ticker from 0 - 9999 as unsigned integer. "0" semantically signals that there is no ID assigned (note that ticker:ID must be unique).
+"[ID]": the arbitray ID for the ticker from 0 - 999999 as unsigned integer. "0" semantically signals that there is no ID assigned (note that ticker:ID must be unique).
 
 "[OUTPUT]": the index as unsigned integer of the output containing the address/pubkey of the beneficiary
 
@@ -115,7 +115,7 @@ Values:
 
 "[BASE26 ENCODED TICKER]": human readable ticker name, decoded as described in General Rules.
 
-"[ID]": the arbitray ID for the ticker from 0 - 9999 as unsigned integer. "0" semantically signals that there is no ID assigned (note that ticker:ID must be unique).
+"[ID]": the arbitray ID for the ticker from 0 - 999999 as unsigned integer. "0" semantically signals that there is no ID assigned (note that ticker:ID must be unique).
 
 "[OUTPUT]": the index as unsigned integer of the output containing the address/pubkey of the beneficiary.
 
@@ -180,7 +180,7 @@ Quadruple:
 
 "[BASE26 ENCODED TICKER]": human readable ticker name, decoded as described in General Rules.
 
-"[ID]": the arbitray ID for the ticker from 0 - 9999 as unsigned integer. "0" semantically signals that there is no ID assigned (note that ticker:ID must be unique).
+"[ID]": the arbitray ID for the ticker from 0 - 999999 as unsigned integer. "0" semantically signals that there is no ID assigned (note that ticker:ID must be unique).
 
 "[OUTPUT]": the index as unsigned integer of the output containing the address/pubkey of the beneficiary.
 
