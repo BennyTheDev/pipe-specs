@@ -25,7 +25,7 @@ Just download, unzip, edit and run in your browser. Initial instructions include
   - ID = 0 semantically represents "No ID" (clients can leave out '0' and just render the ticker)
   - The combination ticker:ID must be unique.
 - All integers passed after OP_RETURN must be unsigned
-- All unisgned integers from 0 - 16 must be encoded as OP_0/OP_FALSE, OP_1/OP_TRUE to OP_16
+- All unsigned integers from 0 - 16 must be encoded as OP_0/OP_FALSE, OP_1/OP_TRUE to OP_16
 - Only 1 OP_RETURN is allowed per TX
 - Burning
 - - If no change address is specified as quadruple with the Transfer function, remaining tokens of a transfer will be burned.
