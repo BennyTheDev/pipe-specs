@@ -56,7 +56,7 @@ Looking closer the values as follows:
 
 "D": shortcut for Deploy, signalling the following data is to define a new token.
 
-"[BASE26 ENCODED TICKER]": human readable ticker name, decoded as described in General Rules.
+"[BASE26 ENCODED TICKER]": human readable ticker name, encoded as described in General Rules.
 
 "[ID]": the arbitray ID for the ticker from 0 - 999999 as unsigned integer. "0" semantically signals that there is no ID assigned (note that ticker:ID must be unique).
 
@@ -113,7 +113,7 @@ Values:
 
 "M": shortcut for Mint, signalling the following data is to mint tokens.
 
-"[BASE26 ENCODED TICKER]": human readable ticker name, decoded as described in General Rules.
+"[BASE26 ENCODED TICKER]": human readable ticker name, encoded as described in General Rules.
 
 "[ID]": the arbitray ID for the ticker from 0 - 999999 as unsigned integer. "0" semantically signals that there is no ID assigned (note that ticker:ID must be unique).
 
@@ -178,7 +178,7 @@ T
 
 Quadruple:
 
-"[BASE26 ENCODED TICKER]": human readable ticker name, decoded as described in General Rules.
+"[BASE26 ENCODED TICKER]": human readable ticker name, encoded as described in General Rules.
 
 "[ID]": the arbitray ID for the ticker from 0 - 999999 as unsigned integer. "0" semantically signals that there is no ID assigned (note that ticker:ID must be unique).
 
