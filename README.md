@@ -20,7 +20,7 @@ Just download, unzip, edit and run in your browser. Initial instructions include
 - A PIPE TX must consist of at least 2 outputs:
 - - The beneficiary receiver
   - An OP_RETURN output, followed by the 'P' and function identifier (D, M, T) and its data
-- Tickers are base26 encoded and must have an arbitrary integer with a max. value of 9999 attached (ID)
+- Tickers are base26 encoded and must have an arbitrary unsigned integer with a max. value of 999999 attached (ID)
 - - base26 value encoding: A=1, AA=27, Z=26, BA=53
   - ID = 0 semantically represents "No ID" (clients can leave out '0' and just render the ticker)
   - The combination ticker:ID must be unique.
