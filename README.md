@@ -266,6 +266,7 @@ Examples:
 2100.50 => not ok
 2100. => not ok
 2,100 => not ok
+18446744073709551616 => not ok (note exceeding the max number)
 ``` 
 
 Indexers must transform the given [TRANSFER AMOUNT] internally into bigint based on [DECIMALS] (see Deploy Rules) and perform calculations on those to maintain precision. No calculations or rounding on the original human readable format allowed.
