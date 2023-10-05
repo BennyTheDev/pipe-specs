@@ -24,7 +24,7 @@ Just download, unzip, edit and run in your browser. Initial instructions include
 - - base26 value encoding: A=1, AA=27, Z=26, BA=53
   - ID = 0 semantically represents "No ID" (clients can leave out '0' and just render the ticker)
   - The combination ticker:ID must be unique.
-- All integers passed after OP_RETURN must be unsigned
+- All integers passed after OP_RETURN and PIPE Art witnesses must be unsigned
 - All unsigned integers from 0 - 16 must be encoded as OP_0/OP_FALSE, OP_1/OP_TRUE to OP_16
 - Only 1 OP_RETURN is allowed per TX
 - Burning
