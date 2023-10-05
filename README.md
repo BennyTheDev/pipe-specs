@@ -100,7 +100,7 @@ PIPE Art is an optional extension for PIPE that allows to store file data, file 
 
 By tuning supply, limit and decimals, PIPE Art can help to achieve non-fungibility for deployed tokens. Deployed PIPE Art tokens behave in the exact same way for mints and transfers like regular tokens. In fact, there is no difference and they can be treated like non-PIPE Art associated tokens.
 
-Unlike token information in outputs, PIPE Art data is stored as signed witness data (P2TR tapscript) using taproot-tweaked public keys. The original untweaked public key represents the collection address for PIPE Art. For each collection item, it can be specified what its number and the overall max. number are. Additionally, PIPE Art allows for traits to help describing the stored item.
+Unlike token information in OP_RETURN outputs, PIPE Art data is stored as signed witness data (P2TR tapscript) using taproot-tweaked public keys. The original untweaked public key represents the collection address for PIPE Art. For each collection item, it can be specified what its number and the overall max. number are. Additionally, PIPE Art allows for traits to help describing the stored item.
 
 Both file data and traits can be alternatively specified as references, pointing to offchain resources. Optionally, a receiver can be specified to mint directly with the deployment, bypassing the mint function requirement. This is however limited to a one-time-mint based on [LIMIT] of the deployment.
 
