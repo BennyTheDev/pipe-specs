@@ -60,7 +60,7 @@ Looking closer the values as follows:
 
 "[ID]": the arbitray ID for the ticker from 0 - 999999 as unsigned integer. "0" semantically signals that there is no ID assigned (note that ticker:ID must be unique).
 
-"[OUTPUT]": the index as unsigned integer of the output containing the address/pubkey of the beneficiary
+"[OUTPUT]": the index as unsigned integer of the output containing the address/pubkey of the beneficiary. [OUTPUT] is not allowed to point to an output containing OP_RETURN.
 
 "[DECIMALS]": the decimals for the token from 0 - 8 as unsigned integer.
 
@@ -130,15 +130,15 @@ OP_ENDIF
 
 "[PUBKEY]": The collection address. To be able to add more items to a collection, the deployments should occur using the same private key.
 
-"[MIMETYPE]": The content type for inline data as hex encoded string. Must be skipped by indexers if it's a reference string instead.
+"[MIMETYPE]": The content type for inline data as hex encoded string. Must be skipped by indexers if it's a reference string instead. If skipped, then it can be an empty push.
 
-"[INLINE DATA | REFERENCE STRING]": If "I" is specified, then bytes must be successively pushed. If "R" is specified, then the next push must be a hex encoded string, containing a file reference. 
+"[INLINE DATA | REFERENCE STRING]": If "I" is specified, then bytes must be successively pushed. If "R" is specified, then the next push must be a hex encoded string, containing a file reference. There must be only one pushdata present in the case of "R" and multiple in the case of "I".
 
-"[NUMBER]": An unsigned integer representing the number of the deployed item in the collection (not to bed mixed up [TICKER] and [ID], those still need to be pushed as described)
+"[NUMBER]": An unsigned integer representing the number of the deployed item in the collection (not to bed mixed up [TICKER] and [ID], those still need to be pushed as described). [NUMBER] is not allowed to be larger then [MAX-NUMBER] and indexers must skip deployments if a [PUBKEY] using the same number exists already.
 
-"[MAX-NUMBER]": Unsigned integer representing the max. number currently in the collection. The max. number can be increased by the collection creator but never decrease.
+"[MAX-NUMBER]": Unsigned integer representing the max. number currently in the collection. The max. number can be increased by the collection creator but never decrease. Total max. value: 999_999_999.
 
-"[BENEFICIARY-OUTPUT]": Unsigned integer starting from 0. Allows a shortcut to mint one-time directly with the deployment based on the [LIMIT] amount. 0 means disabled. Indexers have to substract [BENEFICIARY-OUTPUT] by 1 to assign the desired output properly.
+"[BENEFICIARY-OUTPUT]": Unsigned integer starting from 0. Allows a shortcut to mint one-time directly with the deployment based on the [LIMIT] amount. 0 means disabled. Indexers have to substract [BENEFICIARY-OUTPUT] by 1 to assign the desired output properly. [BENEFICIARY-OUTPUT] is not allowed to point to an output containing OP_RETURN.
 
 "[TRAIT-CONTENT]": Must be either tuples of key/values with hex encoded strings (each key and value pushed separately), a reference to custom traits offchain or left out entirely (including its labels T or TR). 
 
@@ -239,7 +239,7 @@ Quadruple:
 
 "[ID]": the arbitray ID for the ticker from 0 - 999999 as unsigned integer. "0" semantically signals that there is no ID assigned (note that ticker:ID must be unique).
 
-"[OUTPUT]": the index as unsigned integer of the output containing the address/pubkey of the beneficiary.
+"[OUTPUT]": the index as unsigned integer of the output containing the address/pubkey of the beneficiary. [OUTPUT] is not allowed to point to an output containing OP_RETURN.
 
 "[TRANSFER AMOUNT]": The amount to transfer as hex encoded string.
 
