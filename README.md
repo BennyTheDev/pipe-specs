@@ -64,9 +64,9 @@ Looking closer the values as follows:
 
 "[DECIMALS]": the decimals for the token from 0 - 8 as unsigned integer.
 
-"[MAX]": the max. amount of tokens as hex encoded string, ever for this token as in supply.
+"[MAX]": the max. amount of tokens as hex encoded string, ever for this token as in supply. Must be larger than 0.
 
-"[LIMIT]": the max. amount of tokens as hex encoded string that may be minted per tx.
+"[LIMIT]": the max. amount of tokens as hex encoded string that may be minted per tx. Must be larger than 0.
 
 A transaction containing this function, must be assigned to a beneficiary address as described in General Rules. This allows for applications like marketplaces sending royalties to the benificiary on trading fees.
 
@@ -177,7 +177,7 @@ Values:
 
 "[OUTPUT]": the index as unsigned integer of the output containing the address/pubkey of the beneficiary.
 
-"[MINT AMOUNT]": The amount to mint as hex encoded string, between 0 and [LIMIT] (inclusive), given with the deploy function.
+"[MINT AMOUNT]": The amount to mint as hex encoded string, between 0 and [LIMIT] (inclusive), given with the deploy function. Must be larger than 0.
 
 If the mint amount does not exceed the limit and supply that is left from the deployment, the amount of tokens must be credited to the beneficiary as assigned in [OUTPUT].
 
