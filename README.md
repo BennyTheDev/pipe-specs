@@ -115,6 +115,7 @@ OP_IF
 P
 A
 (I|R)
+[MIMETYPE]
 [INLINE DATA | REFERENCE STRING]
 N
 [NUMBER]
@@ -128,6 +129,8 @@ OP_ENDIF
 ```
 
 "[PUBKEY]": The collection address. To be able to add more items to a collection, the deployments should occur using the same private key.
+
+"[MIMETYPE]": The content type for inline data as hex encoded string. Must be skipped by indexers if it's a reference string instead.
 
 "[INLINE DATA | REFERENCE STRING]": If "I" is specified, then bytes must be successively pushed. If "R" is specified, then the next push must be a hex encoded string, containing a file reference. 
 
