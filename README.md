@@ -132,7 +132,7 @@ OP_ENDIF
 
 "[MIMETYPE]": The content type for inline data as hex encoded string. Must be skipped by indexers if it's a reference string instead. If skipped, then it can be an empty push.
 
-"[INLINE DATA | REFERENCE STRING]": If "I" is specified, then bytes must be successively pushed. If "R" is specified, then the next push must be a hex encoded string, containing a file reference. There must be only one pushdata present in the case of "R" and multiple in the case of "I".
+"[INLINE DATA | REFERENCE STRING]": If "I" is specified, then bytes must be successively pushed. If "R" is specified, then the next push must be a hex encoded string, containing a file reference. There must be only one pushdata present in the case of "R" and 1 to multiple in the case of "I".
 
 "[NUMBER]": An unsigned integer representing the number of the deployed item in the collection (not to bed mixed up [TICKER] and [ID], those still need to be pushed as described). [NUMBER] is not allowed to be larger then [MAX-NUMBER] and indexers must skip deployments if a [PUBKEY] using the same number exists already.
 
