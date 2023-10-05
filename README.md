@@ -93,6 +93,60 @@ NOTE: until block 809999, indexers need to detect if [MAX] and [LIMIT] are hex v
 
 From block 810000 only hex encoded strings must be accepted and raw values lead to invalid token transactions.
 
+## Optional: PIPE ART Rules
+
+PIPE Art is an optional extension for PIPE that allows to store file data, file references (urls) and collection information alongside regular token deployments.
+
+By tuning supply, limit and decimals, PIPE Art can help to achieve non-fungibility for deployed tokens. Deployed PIPE Art tokens behave in the exact same way for mints and transfers like regular tokens. In fact, there is no difference and they can be treated like non-PIPE Art associated tokens.
+
+Unlike token information in outputs, PIPE Art data is stored as signed witness data (P2TR tapscript) using taproot-tweaked public keys. The original untweaked public key represents the collection address for PIPE Art. For each collection item, it can be specified what its number and the overall max. number are. Additionally, PIPE Art allows for traits to help describing the stored item.
+
+Both file data and traits can be alternatively specified as references, pointing to offchain resources. Optionally, a receiver can be specified to mint directly with the deployment, bypassing the mint function requirement. This is however limited to a one-time-mint based on [LIMIT] of the deployment.
+
+PIPE Art is added in the same TX as the main token deployment.
+
+The following structure outlines the witness data script for PIPE Art:
+
+```
+[PUBKEY]
+OP_CHECKSIG
+OP_0
+OP_IF
+P
+A
+(I|R)
+[INLINE DATA | REFERENCE STRING]
+N
+[NUMBER]
+[MAX-NUMBER]
+B
+[BENEFICIARY-OUTPUT]
+(empty | T | R)
+[TRAIT-CONTENT]
+01
+OP_ENDIF
+```
+
+"[PUBKEY]": The collection address. To be able to add more items to a collection, the deployments should occur using the same private key.
+
+"[INLINE DATA | REFERENCE STRING]": If "I" is specified, then bytes must be successively pushed. If "R" is specified, then the next push must be a hex encoded string, containing a file reference. 
+
+"[NUMBER]": An unsigned integer representing the number of the deployed item in the collection (not to bed mixed up [TICKER] and [ID], those still need to be pushed as described)
+
+"[MAX-NUMBER]": Unsigned integer representing the max. number currently in the collection. The max. number can be increased by the collection creator but never decrease.
+
+"[BENEFICIARY-OUTPUT]": Unsigned integer starting from 0. Allows a shortcut to mint one-time directly with the deployment based on the [LIMIT] amount. 0 means disabled. Indexers have to substract [BENEFICIARY-OUTPUT] by 1 to assign the desired output properly.
+
+"[TRAIT-CONTENT]": Must be either tuples of key/values, hex encoded strings or a reference to custom traits offchain. 
+
+Recommendations for creating non-fungible tokens
+
+|| ERC-721 | ERC-1155 |
+| -------------| ------------- | ------------- |
+| Decimals | 0 | 0 |
+| Supply | 1 | 1 - 999999 |
+| Limit | 1 | 1
+
 ## Mint Rules
 
 Mint structure:
