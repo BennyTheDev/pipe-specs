@@ -122,7 +122,7 @@ N
 [MAX-NUMBER]
 B
 [BENEFICIARY-OUTPUT]
-(empty | T | R)
+(empty | T | TR)
 [TRAIT-CONTENT]
 01
 OP_ENDIF
