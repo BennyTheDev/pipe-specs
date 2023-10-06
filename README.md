@@ -4,7 +4,7 @@ PIPE is a Bitcoin-native token protocol inspired by Casey Rodarmor's RUNES and O
 
 Since RUNES does not allow for fair mints (an important aspect of BRC-20's) and potentially renders all of its tokens securities (due to centralized distribution), PIPE tries to combine the strengths of both ideas.
 
-Like BRC-20, PIPE consists of 3 "functions": Deploy, Mint, Transfer. Deploy signals that a new token has been deployed, while Mint allows to mint from this token, based on the deployment's rules (supply, limits). Eventually, Transfer is being used to send tokens to selected recipients.
+Like BRC-20, PIPE consists of 3 "functions": Deploy, Mint, Transfer (hence DMT). Deploy signals that a new token has been deployed, while Mint allows to mint from this token, based on the deployment's rules (supply, limits). Eventually, Transfer is being used to send tokens to selected recipients.
 
 This document describes how each of the functions should be reflected within Bitcoin transactions and how indexers/wallets must treat those.
 Further upgrades are not ruled out and may progressively be enhanced within this document.
