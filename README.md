@@ -95,7 +95,7 @@ NOTE: until block 809999, indexers need to detect if [MAX] and [LIMIT] are hex v
 
 From block 810000 only hex encoded strings must be accepted and raw values lead to invalid token transactions.
 
-## Optional: PIPE ART Rules
+## Optional: PIPE | ART Rules
 
 PIPE Art is an optional extension for PIPE that allows to store file data, file references (urls) and collection information alongside regular token deployments.
 
