@@ -1,4 +1,4 @@
-# PIPE Introduction
+# PIPE | DMT Introduction
 
 PIPE is a Bitcoin-native token protocol inspired by Casey Rodarmor's RUNES and Ordinal's BRC-20 ideas.
 
