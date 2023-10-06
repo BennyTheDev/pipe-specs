@@ -30,7 +30,7 @@ Just download, unzip, edit and run in your browser. Initial instructions include
 - Burning
 - - If no change address is specified as quadruple with the Transfer function, remaining tokens of a transfer will be burned.
   - Tokens associated with UTXOs in inputs will be burned if a function of a TX is rejected.
-  - Wallets have to make sure not to accidentally spend UTXOs with non-Transfer functions and transactions.
+  - Wallets have to make sure not to accidentally spend token-associated UTXOs with non-Transfer functions and transactions.
   - Therefore, all clients have to apply careful validations of all rules before pushing a transaction.
 - Indexers/wallets must detect reorgs and re-index from the first reorg'ed block - 7.
 - Indexing starts with block 809608 (included)
