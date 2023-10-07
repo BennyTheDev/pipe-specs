@@ -143,7 +143,9 @@ OP_ENDIF
 
 "[BENEFICIARY-OUTPUT]": Unsigned integer starting from 0. Allows a shortcut to mint one-time directly with the deployment based on the [LIMIT] amount. 0 means disabled. Indexers have to substract [BENEFICIARY-OUTPUT] by 1 to assign the desired output properly. [BENEFICIARY-OUTPUT] is not allowed to point to an output containing OP_RETURN.
 
-"[TRAIT-CONTENT]": Must be either tuples of key/values with hex encoded strings (each key and value pushed separately), a reference to custom traits offchain or left out entirely (including its labels T or TR). 
+"[TRAIT-CONTENT]": Must be either tuples of key/values with hex encoded strings (each key and value pushed separately), a reference to custom traits offchain or left out entirely (including its labels T or TR).
+
+"01" must be skipped by indexers (not mandatory for indexing, but clients should add it).
 
 Recommendations for creating non-fungible tokens
 
