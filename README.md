@@ -282,3 +282,12 @@ The operation must be atomic: If one quadruple fails, all fail. No token balance
 NOTE: until block 809999, indexers need to detect if [TRANSFER AMOUNT] is a hex value. If not, then the raw value must be used (e.g. '1000' = 1000), else use the hex encoded string.
 
 From block 810000 only hex encoded strings must be accepted and raw values lead to invalid token transactions.
+
+## Transfer without function
+
+It must be possible to send individual UTXOs with tokens associated to receiver addresses. This however comes under certain rules:
+
+- There must be at least one input having tokens associated with the transaction.
+- All token amounts of the first found token type (ticker:id) will be accumulated and associated with the first output that is not an op_return.
+- All other token types must be skipped and are spent.
+- This means that clients have to carefully organize a non-function transfer to not mix different token types in inputs.
