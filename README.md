@@ -82,12 +82,13 @@ Examples:
 
 ```
 2100 => ok
-2100.5 => ok, if decimal length <= [DECIMALS]
  2100 => not ok
+2100.5 => ok, if decimal length <= [DECIMALS]
 2100.50 => not ok
 2100.500 => not ok
 2100. => not ok
 2,100 => not ok
+.25 => not ok
 18446744073709551616 => not ok (note exceeding the max number)
 ``` 
 
@@ -202,12 +203,13 @@ Examples:
 
 ```
 2100 => ok
-2100.5 => ok, if decimal length <= [DECIMALS]
  2100 => not ok
+2100.5 => ok, if decimal length <= [DECIMALS]
 2100.50 => not ok
 2100.500 => not ok
 2100. => not ok
 2,100 => not ok
+.25 => not ok
 18446744073709551616 => not ok (note exceeding the max number)
 ``` 
 
@@ -267,12 +269,13 @@ Examples:
 
 ```
 2100 => ok
-2100.5 => ok, if decimal length <= [DECIMALS]
  2100 => not ok
+2100.5 => ok, if decimal length <= [DECIMALS]
 2100.50 => not ok
 2100.500 => not ok
 2100. => not ok
 2,100 => not ok
+.25 => not ok
 18446744073709551616 => not ok (note exceeding the max number)
 ``` 
 
