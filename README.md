@@ -149,7 +149,7 @@ OP_ENDIF
 
 "01" must be skipped by indexers (not mandatory for indexing, but clients should add it).
 
-Recommendations for creating non-fungible tokens
+Recommendations for creating non-fungible/semi-fungible tokens
 
 || ERC-721 | ERC-1155 | ERC-404
 | -------------| ------------- | ------------- | ------------- |
