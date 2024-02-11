@@ -151,11 +151,11 @@ OP_ENDIF
 
 Recommendations for creating non-fungible tokens
 
-|| ERC-721 | ERC-1155 |
-| -------------| ------------- | ------------- |
-| Decimals | 0 | 0 |
-| Supply | 1 | 1 - 999999 |
-| Limit | 1 | 1
+|| ERC-721 | ERC-1155 | ERC-404
+| -------------| ------------- | ------------- | ------------- |
+| Decimals | 0 | 0 | 0 - 8
+| Supply | 1 | 1 - 999999 | as of token-supply
+| Limit | 1 | 1 | as of token mint-limit
 
 ## Mint Rules
 
